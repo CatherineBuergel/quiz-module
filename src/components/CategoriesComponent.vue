@@ -72,7 +72,6 @@
   }
 
   .fa-ban {
-    /* display: inline-block; */
     width: fit-content !important;
     float: right;
     z-index: 1;

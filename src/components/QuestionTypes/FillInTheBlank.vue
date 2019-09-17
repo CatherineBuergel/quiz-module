@@ -1,11 +1,10 @@
 <template>
-  <div class="md-layout-item  my-2 md-size-100 text-center">
+  <div class="md-layout-item my-2 md-size-100 text-center">
 
     <div class="d-flex row justify-content-center">
       <span v-for="(word, i) in words">
-
         <drop v-if="word == '___________'" class="d-flex align-items-center mr-1" @drop="handleDrop(i, dragging)">
-          <div class="" :class="submission[i] == '___________' ? 'text-danger' : 'text-info underline'">
+          <div :class="submission[i] == '___________' ? 'text-danger' : 'text-info underline'">
             {{submission[i]}}</div>
         </drop>
         <span v-else>{{word}}&nbsp;</span>

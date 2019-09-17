@@ -51,13 +51,6 @@
                         @click="removeQuizQuestion(index, question)"></i>
                     </div>
                   </div>
-                  <!-- <div class="md-layout md-gutter">
-                    <div class="md-layout-item md-size-33 md-xsmall-size-100 md-alignment-center-center my-2"
-                      v-for="(question, index) in quiz.questions">
-                      <p v-if="index > originalQuestions.length - 1" class="text-truncate">{{index + 1}}.
-                        {{question.prompt}}</p>
-                    </div>
-                  </div> -->
                 </div>
                 <div class="md-layout-item md-size-100 justify-content-center "><button type="submit"
                     class="md-button md-raised md-primary md-theme-default">
@@ -78,7 +71,7 @@
       <div class="md-layout-item md-medium-size-100 md-size-66">
         <div class="md-card">
           <div class="md-card-header md-layout" data-background-color="blue">
-            <div class="md-layout-item md-size-66 md-xsmall-size-100 text-left my-3">
+            <div class="md-layout-item md-size-66 md-xsmall-size-66 text-left my-3">
               <h1 class="md-title" style="color:white !important; text-shadow: gray 0 1px; font-weight: 500;">
                 Available Questions</h1>
             </div>
@@ -92,7 +85,7 @@
           </div>
           <SearchQuestions></SearchQuestions>
           <md-table>
-            <md-table-row>
+            <md-table-row class="md-layout-item md-size-100 md-xsmall-size-50">
               <md-table-head>Prompt</md-table-head>
               <md-table-head>Type</md-table-head>
               <md-table-head>Category</md-table-head>
@@ -137,7 +130,6 @@
     },
     data() {
       return {
-        // originalQuestions: [],
         selectQuestions: false,
         quiz: {
           name: '',
@@ -160,7 +152,6 @@
         let active = this.$store.state.activeQuiz
         if (active._id) {
           this.quiz = active
-          // this.originalQuestions = [...active.questions]
         }
         return active
       },
@@ -212,7 +203,6 @@
       },
       removeQuizQuestion(i) {
         this.quiz.questions.splice(i, 1)
-        // this.$store.dispatch("editQuiz", { quiz: this.quiz })
       }
 
     },

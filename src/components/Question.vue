@@ -2,20 +2,20 @@
   <div class="container-fluid">
     <div class="md-card md-theme-default">
       <div class="md-card-header" data-background-color="blue">
-        <h3 class="title">Question {{currentQuestion + 1}} out of {{questions.length}}</h3>
+        <h3 class="title">Question {{currentQuestion + 1}} of {{questions.length}}</h3>
       </div>
       <div class="md-card-content">
         <div class="md-layout">
           <component v-if="activeQuestion" :is="activeQuestion.type" :question="activeQuestion"
             @submit="gradeQuestion" />
-          <div v-if="isSubmitted && this.currentQuestion != questions.length - 1"
+          <!-- <div v-if="isSubmitted && this.currentQuestion != questions.length - 1"
             class="md-layout-item md-size-100 text-center">
             <button type="button" class="md-button md-raised md-info md-theme-default mt-3" @click="nextQuestion">
               <div class="md-ripple">
                 <div class="md-button-content">Next Question</div>
               </div>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -80,7 +80,11 @@
             type: gradeAlert.isSuccess(this.grade),
             showCloseButton: true,
             confirmButtonColor: "#00bcd4"
-          });
+          }).then((res) => {
+            if (res.value) {
+              this.nextQuestion()
+            }
+          })
         }
       },
       nextQuestion() {

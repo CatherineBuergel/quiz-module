@@ -10,17 +10,15 @@
           <div class="md-card-content">
             <div class="md-content md-table md-theme-default" table-header-color="orange">
               <div class="md-content md-table-content md-scrollbar md-theme-default">
-                <div class="md-layout-item md-size-100 ">
-                  <CategoriesComponent id="modalDropdown" v-on:change-categories='updateCategories($event)'>
-                  </CategoriesComponent>
-                  <div class="row justify-content-center">
-                    <md-field class="col-3">
-                      <label>Question Type</label>
-                      <md-select v-model="selected" id="questionType">
-                        <md-option v-for="type in types" :value="type.value" :key="type.text">{{type.text}}</md-option>
-                      </md-select>
-                    </md-field>
-                  </div>
+                <CategoriesComponent id="modalDropdown" v-on:change-categories='updateCategories($event)'>
+                </CategoriesComponent>
+                <div class="md-layout-item md-size-100 md-small-size-50 md-alignment-center-center">
+                  <md-field>
+                    <label>Question Type</label>
+                    <md-select v-model="selected" id="questionType">
+                      <md-option v-for="type in types" :value="type.value" :key="type.text">{{type.text}}</md-option>
+                    </md-select>
+                  </md-field>
                 </div>
               </div>
             </div>

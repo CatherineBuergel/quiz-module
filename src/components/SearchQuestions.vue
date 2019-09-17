@@ -1,9 +1,9 @@
 <template>
   <div class="searchQuestions md-theme-default md-layout">
-    <div class="md-layout-item md-alignment-center-center md-size-33  md-small-size-50 md-xsmall-size-100">
+    <div class="md-layout-item md-layout md-alignment-center-center md-size-33  md-small-size-50 md-xsmall-size-100">
       <CategoriesComponent v-on:change-categories='updateCategories($event)'></CategoriesComponent>
     </div>
-    <div class="md-layout-item md-size-33  md-small-size-50 md-xsmall-size-100">
+    <div class="md-layout-item md-layout md-size-33 md-small-size-50 md-xsmall-size-100">
       <md-field class="has-danger md-theme-default">
         <label>Search By Prompt</label>
         <md-input></md-input>

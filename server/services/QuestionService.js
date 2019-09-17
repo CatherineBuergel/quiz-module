@@ -8,7 +8,6 @@ let schema = new mongoose.Schema({
     type: { type: String, enum: ["TrueFalse", "Match", "OpenEnded", "FillInTheBlank", "MultipleChoice"], required: true },
     rationale: { type: String },
     categories: [{ type: ObjectId, ref: 'Category' }]
-    // categories: [{type: ObjectId, ref: "Category"}] needs to be populated everytime
 }, { timestamps: true })
 
 

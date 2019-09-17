@@ -7,7 +7,7 @@ import router from './router';
 Vue.use(Vuex)
 
 const questionApi = axios.create({
-  baseURL: '//localhost:3000/api/questions/',
+  baseURL: '//localhost:3000/api/questions',
   timeout: 5000
 })
 const quizApi = axios.create({
@@ -73,7 +73,6 @@ export default new Vuex.Store({
       try {
         questionApi.post(`${payload.question._id}/answers`, payload)
           .then(res => {
-            console.log(res.data)
             commit('setGrade', res.data)
             payload.alert()
           })
@@ -85,7 +84,6 @@ export default new Vuex.Store({
       try {
         questionApi.post('', payload)
           .then(res => {
-            console.log("successss: ", res.data)
             dispatch('getQuestions')
           })
       } catch (error) {
@@ -96,7 +94,6 @@ export default new Vuex.Store({
       try {
         questionApi.put('', payload)
           .then(res => {
-            console.log(res.data)
             commit('setSearchResults', res.data)
           })
       } catch (error) {
@@ -107,7 +104,6 @@ export default new Vuex.Store({
       try {
         questionApi.delete(payload)
           .then(res => {
-            console.log('delorted!')
             commit('removeQuestion', payload)
           })
       } catch (error) {
@@ -120,7 +116,6 @@ export default new Vuex.Store({
       try {
         quizApi.post('', payload.quiz)
           .then(res => {
-            console.log("successss: ", res.data)
             commit('setActiveQuiz', {})
             payload.alert()
           })
@@ -161,7 +156,6 @@ export default new Vuex.Store({
       try {
         quizApi.delete(payload)
           .then(res => {
-            console.log('delorted quiz!')
             commit('removeQuiz', payload)
             dispatch('deleteAlert')
           })
